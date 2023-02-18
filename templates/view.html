@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Some Cool Messages {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <style>
+    s1{
+        font-weight: bold;
+        font-family: Georgia, serif;
+        font-size: 14px;
+    }
+    s2{
+        font-weight: italic;
+        font-family: cursive;
+        font-size: 14px;
+    }
+    </style>
+
+    {% if messages %}
+      {% for msg in messages %}
+          <s1>{{ msg[1] }}</s1><br>
+          <s2>- {{ msg[2] }}</s2><br><br>
+      {% endfor %}
+    {% else %}
+    There is currently no message QAQ
+    {% endif %}
+
+{% endblock %}
